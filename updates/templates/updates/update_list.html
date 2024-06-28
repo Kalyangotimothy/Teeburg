@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updates | Home Care Education Center</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            color: #4b2e2a;
+            font-family: 'Arial', sans-serif;
+            background-color: rgb(253, 240, 223);
+        }
+
+        .navbar {
+            background-color: #8b5e34;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffe6cc !important;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .section-title {
+            color: #8b5e34;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #8b5e34;
+            color: #fff;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: #8b5e34;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{% url 'index' %}">HOME CARE EDUCATION CENTER</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'update_list' %}">Updates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="section-title">Upcoming Events</h2>
+        {% for event in events %}
+        <div class="card">
+            <div class="card-header">{{ event.title }}</div>
+            <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
+            <div class="card-body">
+                <p>{{ event.description }}</p>
+                <p><strong>Created At:</strong> {{ event.created_at }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+        <h2 class="section-title">Nursery Updates</h2>
+        {% for nursery_update in nursery_updates %}
+        <div class="card">
+            <div class="card-header">{{ nursery_update.title }}</div>
+            <img src="{{ nursery_update.image.url }}" class="card-img-top" alt="{{ nursery_update.title }}">
+            <div class="card-body">
+                <p>{{ nursery_update.description }}</p>
+                <p><strong>Created At:</strong> {{ nursery_update.created_at }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+        <h2 class="section-title">Primary Updates</h2>
+        {% for primary_update in primary_updates %}
+        <div class="card">
+            <div class="card-header">{{ primary_update.title }}</div>
+            <img src="{{ primary_update.image.url }}" class="card-img-top" alt="{{ primary_update.title }}">
+            <div class="card-body">
+                <p>{{ primary_update.description }}</p>
+                <p><strong>Created At:</strong> {{ primary_update.created_at }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+        <h2 class="section-title">Staff Updates</h2>
+        {% for staff_update in staff_updates %}
+        <div class="card">
+            <div class="card-header">{{ staff_update.title }}</div>
+            <img src="{{ staff_update.image.url }}" class="card-img-top" alt="{{ staff_update.title }}">
+            <div class="card-body">
+                <p>{{ staff_update.description }}</p>
+                <p><strong>Created At:</strong> {{ staff_update.created_at }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Home Care Education Center. All rights reserved.</p>
+        <p><a href="{% url 'index' %}#home" style="color: #fff;">Back to top</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

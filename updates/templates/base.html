@@ -1,0 +1,23 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django Project{% endblock %}</title>
+    <!-- Google Analytics script -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-XXXXX-Y');
+    </script>
+    <!-- End Google Analytics script -->
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

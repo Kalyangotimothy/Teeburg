@@ -1,0 +1,331 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Home Care Education Center</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #4b2e2a;
+            background-color: rgb(253, 240, 223);
+        }
+
+        .navbar {
+            background-color: #8b5e34;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffe6cc !important;
+        }
+
+        .header, .about, .contact, .footer {
+            padding: 50px 0;
+        }
+
+
+        .about {
+            position: relative;
+            background: url("{% static 'updates/images/slide4.jpg' %}") no-repeat center center;
+            background-size: cover;
+            opacity: 0.9;
+            color: #000000;
+            text-align: center;
+            font-weight: bold;
+            padding: 50px 0;
+            margin: 100px;
+            border: solid 5px #8b5e34;
+            border-radius: 100px;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 1;
+            border-radius: 100px;
+        }
+
+        .about .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            position: relative;
+            background: url("{% static 'updates/images/header-bg.jpg' %}") no-repeat center center;
+            background-size: cover;
+            opacity: 0.9;
+            color: #ffffff;
+            text-align: center;
+            font-weight: bold;
+            padding: 50px 0;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .header h1, .header p, .header .btn {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-top: 0;
+        }
+
+        .header p {
+            font-size: 1.2em;
+        }
+
+        .about, .contact {
+            text-align: center;
+        }
+
+        .section-title {
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: #8b5e34;
+        }
+
+        .icon-box {
+            text-align: center;
+            padding: 20px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .icon-box i {
+            font-size: 3em;
+            color: #8b5e34;
+            margin-bottom: 20px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+        }
+
+        
+        .footer {
+            background-color: #8b5e34;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .apply-button {
+            margin-top: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .header h1 {
+                font-size: calc(1.5rem + 1.5vw);
+            }
+
+            .header p {
+                font-size: calc(0.75rem + 0.75vw)
+            }
+
+            .section-title {
+                font-size: calc(1rem + 1vw);
+            }
+
+            .icon-box h4 {
+                font-size: calc(1rem + 0.75vw);
+            }
+
+            .icon-box p{
+                font-size: calc(0.625rem + 0.375vw);
+            }
+
+            .about p,
+            .contact p {
+                font-size: calc(0.625rem + 0.315vw);
+            }
+
+            .footer p {
+                font-size: 10px;
+            }
+
+            .about {
+            margin: 10px;
+            border: solid 5px #8b5e34;
+            border-radius: 100px;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 1;
+            border-radius: 100px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">HOME CARE EDUCATION CENTER</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'update_list' %}">Updates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/">Admin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Welcome to Home Care Education Center</h1>
+        <p>Providing quality education for a brighter future</p>
+        <a href="#about" class="btn btn-primary">Learn More</a>
+        <a style="margin-top: 0px;" href="https://docs.google.com/forms/d/e/1FAIpQLSd0P0H8MvLCj0-FsF5E4C7pF5MwXN-KV5N4AYdfDfbyuHgAqg/viewform" target="_blank" class="btn btn-secondary apply-button">Apply Now &RightArrow;</a>
+    </div>
+
+    <!-- About Us Section -->
+    <div id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p>School Motto: "Thy Education Thy Power"</p>
+            <p>Values: Integrity, Excellence, Compassion</p>
+            <p>Location: Kampala, Uganda</p>
+        </div>
+    </div>
+
+    <!-- Picture Sections -->
+    <div class="container my-5">
+        <h2 class="section-title text-center">Our School</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="icon-box">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h4>Dedicated Teachers</h4>
+                    <p>Our team of dedicated teachers ensures each student receives personalized attention.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box">
+                    <i class="fas fa-book-open"></i>
+                    <h4>Comprehensive Curriculum</h4>
+                    <p>We offer a comprehensive curriculum that covers all essential subjects and extracurricular activities.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box">
+                    <i class="fas fa-school"></i>
+                    <h4>Modern Facilities</h4>
+                    <p>Our school is equipped with modern facilities to support a conducive learning environment.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Gallery Section -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'updates/images/slide1.jpg' %}" class="d-block w-100" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'updates/images/slide2.jpg' %}" class="d-block w-100" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'updates/images/slide3.jpg' %}" class="d-block w-100" alt="Slide 3">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'updates/images/slide4.jpg' %}" class="d-block w-100" alt="Slide 4">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'updates/images/slide5.jpg' %}" class="d-block w-100" alt="Slide 5">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'updates/images/slide6.jpg' %}" class="d-block w-100" alt="Slide 6">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p>If you have any questions or need more information, feel free to contact us:</p>
+            <p>Email: info@homecareeducationcenter.com</p>
+            <p>Phone: +256 123 456 789</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Home Care Education Center. All rights reserved.</p>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+</body>
+</html>
